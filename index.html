@@ -23,7 +23,7 @@ header{text-align:center;padding:10px 0 2px}.brand{font-size:11px;letter-spacing
 .action .ico{font-size:27px;line-height:1}.action:active{transform:scale(.98)}
 .spotify{grid-column:1/-1;min-height:78px;flex-direction:row;background:linear-gradient(120deg,#e5f4e9,#f7fff8);color:#17683a}
 .call{grid-column:1/-1;background:linear-gradient(135deg,#b64c7c,#8f416b);color:white}
-.close{width:100%;min-height:54px;border:0;border-radius:18px;background:#f0dce7;color:#743a5b;font:700 16px system-ui}
+.close{grid-column:1/-1;width:100%;min-height:74px;border:1px solid rgba(255,255,255,.95);border-radius:21px;background:linear-gradient(135deg,#f5e3ec,#ead2df);color:#743a5b;font:700 16px system-ui;box-shadow:0 8px 24px rgba(103,58,82,.08);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px}
 footer{text-align:center;color:#946f83;font:500 15px Georgia,serif;padding:3px 0 8px}
 dialog{border:1px solid #f1dce7;border-radius:26px;padding:26px 21px;width:min(calc(100% - 32px),390px);background:#fffafc;color:var(--ink);text-align:center;box-shadow:0 24px 80px rgba(67,30,52,.25)}dialog::backdrop{background:rgba(52,27,43,.48);backdrop-filter:blur(5px)}dialog h2{font:500 26px Georgia,serif;margin:4px 0 14px}dialog p{font-size:17px;line-height:1.7;margin:0 0 20px}.done{width:100%;background:#f3e2eb;color:#743a5b;border:0;border-radius:16px;padding:14px;font-weight:700}
 @media(max-width:360px){h1{font-size:31px}.action{min-height:94px;font-size:14px}}
@@ -39,8 +39,9 @@ dialog{border:1px solid #f1dce7;border-radius:26px;padding:26px 21px;width:min(c
 <a class="action" href="https://waze.com/ul?q=%D7%A9%D7%A9%D7%AA%20%D7%94%D7%99%D7%9E%D7%99%D7%9D%201%2C%20%D7%97%D7%95%D7%9C%D7%95%D7%9F&navigate=yes"><span class="ico">💗</span><span>סעי למאמי</span></a>
 <a class="action spotify" href="https://open.spotify.com/" target="_blank" rel="noopener"><span class="ico">♫</span><span>Spotify</span><span class="small">למוזיקה שאת אוהבת</span></a>
 <button class="action call" id="call"><span class="ico">♡</span><span>להתקשר למאמי</span></button>
+<button class="close" id="goodbye"><span class="ico">💌</span><span>לסגור אפליקציה</span></button>
 </section>
-<button class="close" id="goodbye">לסגור אפליקציה</button>
+
 <footer>תזכרי תמיד שאת החיים שלי .</footer>
 </main>
 <dialog id="farewell" aria-labelledby="farewell-title"><div style="font-size:38px">💗</div><h2 id="farewell-title">להתראות, אהובה שלי ❤️</h2><p id="message"></p><button class="done" id="done">סיימתי ❤️</button></dialog>
