@@ -1,0 +1,10 @@
+{
+  "name": "האוטו של טל",
+  "short_name": "האוטו של טל",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7eaf0",
+  "theme_color": "#f7eaf0"
+}
