@@ -6,66 +6,54 @@
 <meta name="theme-color" content="#f7eaf0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icon.svg">
-<meta name="mobile-web-app-capable" content="yes">
 <title>האוטו של טל</title>
 <style>
-:root{color-scheme:light;--ink:#4a263d;--muted:#8e7181;--pink:#b64c7c;--gold:#bd9859;--card:rgba(255,255,255,.78)}
+:root{color-scheme:light;--ink:#4a263d;--muted:#8e7181;--pink:#b64c7c;--gold:#bd9859;--card:rgba(255,255,255,.82)}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Arial",sans-serif;color:var(--ink);background:radial-gradient(ellipse at 90% 0%,#f4d9e5,transparent 45%),radial-gradient(ellipse at 0 40%,#f7ead0,transparent 40%),linear-gradient(160deg,#fff8f4,#f5e8f1);-webkit-font-smoothing:antialiased}
-main{width:min(100%,460px);min-height:100svh;margin:auto;padding:max(26px,env(safe-area-inset-top)) 22px max(28px,env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:center;gap:22px}
-header{text-align:center;padding:12px 0}.brand{font-size:12px;letter-spacing:.14em;color:var(--gold);font-weight:700}.spark{font-size:26px;margin:0 8px}h1{font-family:Georgia,serif;font-size:clamp(32px,8vw,40px);font-weight:500;margin:16px 0 8px;color:#542c45}.sub{font-size:14px;color:var(--muted)}
-.card{background:var(--card);border:1px solid rgba(255,255,255,.9);border-radius:26px;padding:24px;box-shadow:0 12px 38px rgba(103,58,82,.10);text-align:center}
-.heart{font-size:42px;margin-bottom:10px}.card h2{font-family:Georgia,serif;font-weight:500;font-size:25px;margin:0 0 10px}.card p{color:var(--muted);font-size:14px;line-height:1.65;margin:0}
-button{font:inherit;border:0;border-radius:18px;min-height:58px;padding:15px 20px;font-weight:700;font-size:17px;cursor:pointer}
-.primary{background:linear-gradient(135deg,#b64c7c,#8f416b);color:white;box-shadow:0 9px 22px rgba(143,65,107,.23)}
-footer{text-align:center;color:#a58b9a;font-size:11px}
-dialog{border:1px solid #f1dce7;border-radius:28px;padding:28px 22px;width:min(calc(100% - 32px),390px);background:#fffafc;color:var(--ink);text-align:center;box-shadow:0 24px 80px rgba(67,30,52,.25)}
-dialog::backdrop{background:rgba(52,27,43,.48);backdrop-filter:blur(5px)}
-dialog h2{font:500 27px Georgia,serif;margin:4px 0 15px}dialog p{font-size:18px;line-height:1.7;margin:0 0 23px}.done{width:100%;background:#f3e2eb;color:#743a5b}
+main{width:min(100%,480px);min-height:100svh;margin:auto;padding:max(22px,env(safe-area-inset-top)) 20px max(26px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:17px}
+header{text-align:center;padding:10px 0 2px}.brand{font-size:11px;letter-spacing:.13em;color:var(--gold);font-weight:700}.spark{font-size:21px;margin:0 7px}h1{font-family:Georgia,serif;font-size:36px;font-weight:500;margin:10px 0 3px;color:#542c45}.sub{font-size:13px;color:var(--muted)}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.92);border-radius:23px;padding:18px;box-shadow:0 10px 30px rgba(103,58,82,.09);text-align:center}
+.greeting{font:500 25px Georgia,serif;margin:0 0 6px}.small{font-size:13px;color:var(--muted)}
+.weatherline{display:flex;justify-content:center;align-items:center;gap:9px;font-size:17px;font-weight:650}.weatherline .temp{font-size:30px;color:#9b5276}.weather-note{font-size:11px;color:var(--muted);margin-top:4px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.action{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;min-height:104px;padding:14px 10px;border:1px solid rgba(255,255,255,.95);border-radius:21px;background:var(--card);color:var(--ink);text-decoration:none;font:700 16px system-ui;box-shadow:0 8px 24px rgba(103,58,82,.08);cursor:pointer}
+.action .ico{font-size:27px;line-height:1}.action:active{transform:scale(.98)}
+.spotify{grid-column:1/-1;min-height:78px;flex-direction:row;background:linear-gradient(120deg,#e5f4e9,#f7fff8);color:#17683a}
+.call{grid-column:1/-1;background:linear-gradient(135deg,#b64c7c,#8f416b);color:white}
+.close{width:100%;min-height:54px;border:0;border-radius:18px;background:#f0dce7;color:#743a5b;font:700 16px system-ui}
+footer{text-align:center;color:#946f83;font:500 15px Georgia,serif;padding:3px 0 8px}
+dialog{border:1px solid #f1dce7;border-radius:26px;padding:26px 21px;width:min(calc(100% - 32px),390px);background:#fffafc;color:var(--ink);text-align:center;box-shadow:0 24px 80px rgba(67,30,52,.25)}dialog::backdrop{background:rgba(52,27,43,.48);backdrop-filter:blur(5px)}dialog h2{font:500 26px Georgia,serif;margin:4px 0 14px}dialog p{font-size:17px;line-height:1.7;margin:0 0 20px}.done{width:100%;background:#f3e2eb;color:#743a5b;border:0;border-radius:16px;padding:14px;font-weight:700}
+@media(max-width:360px){h1{font-size:31px}.action{min-height:94px;font-size:14px}}
 </style>
 </head>
 <body>
 <main>
 <header><div class="brand"><span class="spark">✦</span> רגעים קטנים של אהבה <span class="spark">✦</span></div><h1>האוטו של טל</h1><div class="sub">קצת אהבה, גם בדרך.</div></header>
-<section class="card"><div class="heart">♡</div><h2>כיף שאת כאן</h2><p>כל נסיעה יכולה להתחיל בחיוך קטן.</p></section>
-<button class="primary" id="goodbye">לסגור אפליקציה</button>
-<footer>נוצר באהבה ❤️<br><span style="display:block;margin-top:10px">להתקנה באייפון: Safari ← שיתוף ← הוספה למסך הבית</span></footer>
+<section class="card"><div class="greeting" id="greeting">היי מאמי שלי ❤️</div><div class="small">מאחלת לך נסיעה נעימה ובטוחה</div></section>
+<section class="card" aria-label="מזג האוויר בראשון לציון"><div class="weatherline"><span>☀️</span><span class="temp" id="temperature">--°</span><span id="condition">טוען מזג אוויר…</span></div><div class="weather-note">ראשון לציון, ישראל · <span id="weatherUpdated">נתוני מזג אוויר</span></div></section>
+<section class="grid" aria-label="קיצורי דרך">
+<a class="action" href="https://waze.com/ul?q=%D7%A9%D7%A4%D7%98%D7%9C%2032%2C%20%D7%A8%D7%90%D7%A9%D7%95%D7%9F%20%D7%9C%D7%A6%D7%99%D7%95%D7%9F&navigate=yes"><span class="ico">🏡</span><span>סעי הביתה</span></a>
+<a class="action" href="https://waze.com/ul?q=%D7%A9%D7%A9%D7%AA%20%D7%94%D7%99%D7%9E%D7%99%D7%9D%201%2C%20%D7%97%D7%95%D7%9C%D7%95%D7%9F&navigate=yes"><span class="ico">💗</span><span>סעי למאמי</span></a>
+<a class="action spotify" href="https://open.spotify.com/" target="_blank" rel="noopener"><span class="ico">♫</span><span>Spotify</span><span class="small">למוזיקה שאת אוהבת</span></a>
+<button class="action call" id="call"><span class="ico">♡</span><span>להתקשר למאמי</span></button>
+</section>
+<button class="close" id="goodbye">לסגור אפליקציה</button>
+<footer>תזכרי תמיד שאת החיים שלי .</footer>
 </main>
-<dialog id="farewell" aria-labelledby="farewell-title"><div class="heart">💗</div><h2 id="farewell-title">להתראות, אהובה שלי ❤️</h2><p id="message"></p><button class="done" id="done">סיימתי ❤️</button></dialog>
+<dialog id="farewell" aria-labelledby="farewell-title"><div style="font-size:38px">💗</div><h2 id="farewell-title">להתראות, אהובה שלי ❤️</h2><p id="message"></p><button class="done" id="done">סיימתי ❤️</button></dialog>
 <script>
-const messages = [
-"תזכרי תמיד שאת החיים שלי. ❤️",
-"גם כשאת לא איתי, הלב שלי תמיד אצלך.",
-"הלוואי שיכולתי לתת לך עכשיו נשיקה לפני שאת הולכת.",
-"את הדבר הכי יפה שקרה לי.",
-"שתלכי לישון עם חיוך, ותדעי שיש מישהו שחושב עלייך בלי הפסקה.",
-"המרחק בינינו לא משנה, את תמיד קרובה ללב שלי.",
-"אם הייתי יכול, הייתי עוצר את הזמן בכל רגע איתך.",
-"את הבית שלי, גם כשאנחנו רחוקים.",
-"רק רציתי להזכיר לך כמה את אהובה.",
-"עוד יום נגמר, אבל האהבה שלי אלייך לא נגמרת לעולם.",
-"תשמרי על החיוך הזה שלך, הוא עושה לי את היום.",
-"הייתי בוחר בך מחדש בכל יום.",
-"שולח לך חיבוק ענק ונשיקה שאף פעם לא נגמרת.",
-"את המחשבה האחרונה שלי לפני השינה והראשונה כשאני מתעורר.",
-"לא משנה איך עבר עלייך היום, תמיד יש לך אותי.",
-"את הקסם הקטן שהפך את החיים שלי ליפים יותר.",
-"הלוואי שהייתי יכול להיות עכשיו לידך ולחבק אותך חזק.",
-"אל תשכחי לרגע כמה את מיוחדת בשבילי.",
-"העולם שלי קצת יותר יפה מאז שאת חלק ממנו.",
-"לילה טוב, אהבה שלי. ואם עוד לא לילה, אז פשוט תדעי שאני אוהב אותך. ❤️"
-];
+const greetings=[{h:5,t:"בוקר טוב מאמי שלי ❤️"},{h:12,t:"צהריים טובים מאמי שלי ❤️"},{h:17,t:"ערב טוב מאמי שלי ❤️"},{h:22,t:"לילה טוב מאמי שלי ❤️"}];
+const hour=new Date().getHours();let greeting=greetings[0].t;for(const item of greetings){if(hour>=item.h)greeting=item.t;}document.querySelector("#greeting").textContent=greeting;
+const weatherCodes={0:"בהיר",1:"מעונן מעט",2:"מעונן חלקית",3:"מעונן",45:"ערפל",48:"ערפל",51:"טפטוף קל",53:"טפטוף",55:"טפטוף חזק",61:"גשם קל",63:"גשם",65:"גשם חזק",71:"שלג קל",73:"שלג",75:"שלג כבד",80:"ממטרים",81:"ממטרים",82:"ממטרים חזקים",95:"סופת רעמים",96:"סופת רעמים וברד",99:"סופת רעמים וברד"};
+fetch("https://api.open-meteo.com/v1/forecast?latitude=31.9730&longitude=34.7925&current=temperature_2m,weather_code&timezone=Asia%2FJerusalem").then(r=>{if(!r.ok)throw Error("weather");return r.json()}).then(d=>{document.querySelector("#temperature").textContent=Math.round(d.current.temperature_2m)+"°";document.querySelector("#condition").textContent=weatherCodes[d.current.weather_code]||"מזג אוויר נוכחי";document.querySelector("#weatherUpdated").textContent="עודכן עכשיו"}).catch(()=>{document.querySelector("#condition").textContent="לא ניתן לטעון כרגע";document.querySelector("#weatherUpdated").textContent="נסי שוב מאוחר יותר"});
+document.querySelector("#call").addEventListener("click",()=>{const number=window.prompt("הכניסי את מספר הטלפון של מאמי");if(number){const clean=number.replace(/[^+0-9]/g,"");if(clean)window.location.href="tel:"+clean;}});
+const messages=["תזכרי תמיד שאת החיים שלי. ❤️","גם כשאת לא איתי, הלב שלי תמיד אצלך.","הלוואי שיכולתי לתת לך עכשיו נשיקה לפני שאת הולכת.","את הדבר הכי יפה שקרה לי.","שתלכי לישון עם חיוך, ותדעי שיש מישהו שחושב עלייך בלי הפסקה.","המרחק בינינו לא משנה, את תמיד קרובה ללב שלי.","אם הייתי יכול, הייתי עוצר את הזמן בכל רגע איתך.","את הבית שלי, גם כשאנחנו רחוקים.","רק רציתי להזכיר לך כמה את אהובה.","עוד יום נגמר, אבל האהבה שלי אלייך לא נגמרת לעולם.","תשמרי על החיוך הזה שלך, הוא עושה לי את היום.","הייתי בוחר בך מחדש בכל יום.","שולח לך חיבוק ענק ונשיקה שאף פעם לא נגמרת.","את המחשבה האחרונה שלי לפני השינה והראשונה כשאני מתעורר.","לא משנה איך עבר עלייך היום, תמיד יש לך אותי.","את הקסם הקטן שהפך את החיים שלי ליפים יותר.","הלוואי שהייתי יכול להיות עכשיו לידך ולחבק אותך חזק.","אל תשכחי לרגע כמה את מיוחדת בשבילי.","העולם שלי קצת יותר יפה מאז שאת חלק ממנו.","לילה טוב, אהבה שלי. ואם עוד לא לילה, אז פשוט תדעי שאני אוהב אותך. ❤️"];
 const dialog=document.querySelector("#farewell");
-document.querySelector("#goodbye").addEventListener("click",()=>{
- const last=localStorage.getItem("lastFarewellMessage");
- const choices=messages.map((m,i)=>({m,i})).filter(x=>x.m!==last);
- const chosen=choices[Math.floor(Math.random()*choices.length)].m;
- document.querySelector("#message").textContent=chosen;
- localStorage.setItem("lastFarewellMessage",chosen);
- dialog.showModal();
-});
+document.querySelector("#goodbye").addEventListener("click",()=>{const last=sessionStorage.getItem("lastFarewellMessage");const choices=messages.filter(m=>m!==last);const chosen=choices[Math.floor(Math.random()*choices.length)];document.querySelector("#message").textContent=chosen;sessionStorage.setItem("lastFarewellMessage",chosen);dialog.showModal();});
 document.querySelector("#done").addEventListener("click",()=>dialog.close());
-if("serviceWorker" in navigator) window.addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
+if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
 </script>
 </body></html>
