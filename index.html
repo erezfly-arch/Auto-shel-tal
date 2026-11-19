@@ -32,7 +32,7 @@ dialog{border:1px solid #f1dce7;border-radius:26px;padding:26px 21px;width:min(c
 <body>
 <main>
 <header><div class="brand"><span class="spark">✦</span> רגעים קטנים של אהבה <span class="spark">✦</span></div><h1>האוטו של טל</h1><div class="sub">קצת אהבה, גם בדרך.</div></header>
-<section class="card"><div class="greeting" id="greeting">היי מאמי שלי ❤️</div><div class="small">מאחלת לך נסיעה נעימה ובטוחה</div></section>
+<section class="card"><div class="greeting" id="greeting">היי מאמי שלי ❤️</div><div class="small">מאחל לך נסיעה טובה</div></section>
 <section class="card" aria-label="מזג האוויר בראשון לציון"><div class="weatherline"><span>☀️</span><span class="temp" id="temperature">--°</span><span id="condition">טוען מזג אוויר…</span></div><div class="weather-note">ראשון לציון, ישראל · <span id="weatherUpdated">נתוני מזג אוויר</span></div></section>
 <section class="grid" aria-label="קיצורי דרך">
 <a class="action" href="https://waze.com/ul?q=%D7%A9%D7%A4%D7%98%D7%9C%2032%2C%20%D7%A8%D7%90%D7%A9%D7%95%D7%9F%20%D7%9C%D7%A6%D7%99%D7%95%D7%9F&navigate=yes"><span class="ico">🏡</span><span>סעי הביתה</span></a>
@@ -46,15 +46,25 @@ dialog{border:1px solid #f1dce7;border-radius:26px;padding:26px 21px;width:min(c
 </main>
 <dialog id="farewell" aria-labelledby="farewell-title"><div style="font-size:38px">💗</div><h2 id="farewell-title">להתראות, אהובה שלי ❤️</h2><p id="message"></p><button class="done" id="done">סיימתי ❤️</button></dialog>
 <script>
-const greetings=[{h:5,t:"בוקר טוב מאמי שלי ❤️"},{h:12,t:"צהריים טובים מאמי שלי ❤️"},{h:17,t:"ערב טוב מאמי שלי ❤️"},{h:22,t:"לילה טוב מאמי שלי ❤️"}];
+const greetings=[{h:5,t:"בוקר טוב מאמי ❤️"},{h:12,t:"צהריים טובים מאמי ❤️"},{h:17,t:"ערב טוב מאמי ❤️"},{h:22,t:"לילה טוב מאמי ❤️"}];
 const hour=new Date().getHours();let greeting=greetings[0].t;for(const item of greetings){if(hour>=item.h)greeting=item.t;}document.querySelector("#greeting").textContent=greeting;
 const weatherCodes={0:"בהיר",1:"מעונן מעט",2:"מעונן חלקית",3:"מעונן",45:"ערפל",48:"ערפל",51:"טפטוף קל",53:"טפטוף",55:"טפטוף חזק",61:"גשם קל",63:"גשם",65:"גשם חזק",71:"שלג קל",73:"שלג",75:"שלג כבד",80:"ממטרים",81:"ממטרים",82:"ממטרים חזקים",95:"סופת רעמים",96:"סופת רעמים וברד",99:"סופת רעמים וברד"};
-fetch("https://api.open-meteo.com/v1/forecast?latitude=31.9730&longitude=34.7925&current=temperature_2m,weather_code&timezone=Asia%2FJerusalem").then(r=>{if(!r.ok)throw Error("weather");return r.json()}).then(d=>{document.querySelector("#temperature").textContent=Math.round(d.current.temperature_2m)+"°";document.querySelector("#condition").textContent=weatherCodes[d.current.weather_code]||"מזג אוויר נוכחי";document.querySelector("#weatherUpdated").textContent="עודכן עכשיו"}).catch(()=>{document.querySelector("#condition").textContent="לא ניתן לטעון כרגע";document.querySelector("#weatherUpdated").textContent="נסי שוב מאוחר יותר"});
+fetch("https://api.open-meteo.com/v1/forecast?latitude=31.9730&longitude=34.7925&current=temperature_2m,weather_code&timezone=Asia%2FJerusalem").then(r=>{if(!r.ok)throw Error("weather");return r.json()}).then(d=>{document.querySelector("#temperature").textContent=Math.round(d.current.temperature_2m)+"°";document.querySelector("#condition").textContent=weatherCodes[d.current.weather_code]||"מזג אוויר נוכחי";document.querySelector("#weatherUpdated").textContent="עודכן עכשיו"}).catch(()=>{document.querySelector("#condition").textContent="לא ניתן לטעון כרגע";document.querySelector("#weatherUpdated").textContent="נסה שוב מאוחר יותר"});
 document.querySelector("#call").addEventListener("click",()=>{const number=window.prompt("הכניסי את מספר הטלפון של מאמי");if(number){const clean=number.replace(/[^+0-9]/g,"");if(clean)window.location.href="tel:"+clean;}});
 const messages=["תזכרי תמיד שאת החיים שלי. ❤️","גם כשאת לא איתי, הלב שלי תמיד אצלך.","הלוואי שיכולתי לתת לך עכשיו נשיקה לפני שאת הולכת.","את הדבר הכי יפה שקרה לי.","שתלכי לישון עם חיוך, ותדעי שיש מישהו שחושב עלייך בלי הפסקה.","המרחק בינינו לא משנה, את תמיד קרובה ללב שלי.","אם הייתי יכול, הייתי עוצר את הזמן בכל רגע איתך.","את הבית שלי, גם כשאנחנו רחוקים.","רק רציתי להזכיר לך כמה את אהובה.","עוד יום נגמר, אבל האהבה שלי אלייך לא נגמרת לעולם.","תשמרי על החיוך הזה שלך, הוא עושה לי את היום.","הייתי בוחר בך מחדש בכל יום.","שולח לך חיבוק ענק ונשיקה שאף פעם לא נגמרת.","את המחשבה האחרונה שלי לפני השינה והראשונה כשאני מתעורר.","לא משנה איך עבר עלייך היום, תמיד יש לך אותי.","את הקסם הקטן שהפך את החיים שלי ליפים יותר.","הלוואי שהייתי יכול להיות עכשיו לידך ולחבק אותך חזק.","אל תשכחי לרגע כמה את מיוחדת בשבילי.","העולם שלי קצת יותר יפה מאז שאת חלק ממנו.","לילה טוב, אהבה שלי. ואם עוד לא לילה, אז פשוט תדעי שאני אוהב אותך. ❤️"];
 const dialog=document.querySelector("#farewell");
 document.querySelector("#goodbye").addEventListener("click",()=>{const last=sessionStorage.getItem("lastFarewellMessage");const choices=messages.filter(m=>m!==last);const chosen=choices[Math.floor(Math.random()*choices.length)];document.querySelector("#message").textContent=chosen;sessionStorage.setItem("lastFarewellMessage",chosen);dialog.showModal();});
-document.querySelector("#done").addEventListener("click",()=>dialog.close());
+document.querySelector("#done").addEventListener("click",()=>{
+  dialog.close();
+  // iOS and most browsers block scripts from closing an installed web app.
+  // Try the platform close request, then give Tal a clear, usable exit screen.
+  window.close();
+  const exit=document.createElement("div");
+  exit.setAttribute("role","status");
+  exit.style.cssText="position:fixed;inset:0;z-index:9999;background:linear-gradient(160deg,#fff8f4,#f5e8f1);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;color:#542c45;font-family:system-ui";
+  exit.innerHTML='<div style="font-size:48px">💗</div><h2 style="font-family:Georgia,serif;font-weight:500">נסיעה טובה, אהובה שלי</h2><p style="font-size:17px;line-height:1.8">כדי לסגור את האפליקציה, החליקי מתחתית המסך כלפי מעלה וחזרי למסך הבית.</p><p style="font-size:13px;color:#8e7181">אוהב אותך ❤️</p>';
+  document.body.appendChild(exit);
+});
 if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
 </script>
 </body></html>
