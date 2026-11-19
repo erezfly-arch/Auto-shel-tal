@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7eaf0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="/manifest.webmanifest">
+<title>האוטו של טל</title>
+<style>
+:root{color-scheme:light;--ink:#4a263d;--muted:#8e7181;--pink:#b64c7c;--gold:#bd9859;--card:rgba(255,255,255,.78)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Arial",sans-serif;color:var(--ink);background:radial-gradient(ellipse at 90% 0%,#f4d9e5,transparent 45%),radial-gradient(ellipse at 0 40%,#f7ead0,transparent 40%),linear-gradient(160deg,#fff8f4,#f5e8f1);-webkit-font-smoothing:antialiased}
+main{width:min(100%,460px);min-height:100svh;margin:auto;padding:max(26px,env(safe-area-inset-top)) 22px max(28px,env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:center;gap:22px}
+header{text-align:center;padding:12px 0}.brand{font-size:12px;letter-spacing:.14em;color:var(--gold);font-weight:700}.spark{font-size:26px;margin:0 8px}h1{font-family:Georgia,serif;font-size:clamp(32px,8vw,40px);font-weight:500;margin:16px 0 8px;color:#542c45}.sub{font-size:14px;color:var(--muted)}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.9);border-radius:26px;padding:24px;box-shadow:0 12px 38px rgba(103,58,82,.10);text-align:center}
+.heart{font-size:42px;margin-bottom:10px}.card h2{font-family:Georgia,serif;font-weight:500;font-size:25px;margin:0 0 10px}.card p{color:var(--muted);font-size:14px;line-height:1.65;margin:0}
+button{font:inherit;border:0;border-radius:18px;min-height:58px;padding:15px 20px;font-weight:700;font-size:17px;cursor:pointer}
+.primary{background:linear-gradient(135deg,#b64c7c,#8f416b);color:white;box-shadow:0 9px 22px rgba(143,65,107,.23)}
+footer{text-align:center;color:#a58b9a;font-size:11px}
+dialog{border:1px solid #f1dce7;border-radius:28px;padding:28px 22px;width:min(calc(100% - 32px),390px);background:#fffafc;color:var(--ink);text-align:center;box-shadow:0 24px 80px rgba(67,30,52,.25)}
+dialog::backdrop{background:rgba(52,27,43,.48);backdrop-filter:blur(5px)}
+dialog h2{font:500 27px Georgia,serif;margin:4px 0 15px}dialog p{font-size:18px;line-height:1.7;margin:0 0 23px}.done{width:100%;background:#f3e2eb;color:#743a5b}
+</style>
+</head>
+<body>
+<main>
+<header><div class="brand"><span class="spark">✦</span> רגעים קטנים של אהבה <span class="spark">✦</span></div><h1>האוטו של טל</h1><div class="sub">קצת אהבה, גם בדרך.</div></header>
+<section class="card"><div class="heart">♡</div><h2>כיף שאת כאן</h2><p>כל נסיעה יכולה להתחיל בחיוך קטן.</p></section>
+<button class="primary" id="goodbye">לסגור אפליקציה</button>
+<footer>נוצר באהבה ❤️</footer>
+</main>
+<dialog id="farewell" aria-labelledby="farewell-title"><div class="heart">💗</div><h2 id="farewell-title">להתראות, אהובה שלי ❤️</h2><p id="message"></p><button class="done" id="done">סיימתי ❤️</button></dialog>
+<script>
+const messages = [
+"תזכרי תמיד שאת החיים שלי. ❤️",
+"גם כשאת לא איתי, הלב שלי תמיד אצלך.",
+"הלוואי שיכולתי לתת לך עכשיו נשיקה לפני שאת הולכת.",
+"את הדבר הכי יפה שקרה לי.",
+"שתלכי לישון עם חיוך, ותדעי שיש מישהו שחושב עלייך בלי הפסקה.",
+"המרחק בינינו לא משנה, את תמיד קרובה ללב שלי.",
+"אם הייתי יכול, הייתי עוצר את הזמן בכל רגע איתך.",
+"את הבית שלי, גם כשאנחנו רחוקים.",
+"רק רציתי להזכיר לך כמה את אהובה.",
+"עוד יום נגמר, אבל האהבה שלי אלייך לא נגמרת לעולם.",
+"תשמרי על החיוך הזה שלך, הוא עושה לי את היום.",
+"הייתי בוחר בך מחדש בכל יום.",
+"שולח לך חיבוק ענק ונשיקה שאף פעם לא נגמרת.",
+"את המחשבה האחרונה שלי לפני השינה והראשונה כשאני מתעורר.",
+"לא משנה איך עבר עלייך היום, תמיד יש לך אותי.",
+"את הקסם הקטן שהפך את החיים שלי ליפים יותר.",
+"הלוואי שהייתי יכול להיות עכשיו לידך ולחבק אותך חזק.",
+"אל תשכחי לרגע כמה את מיוחדת בשבילי.",
+"העולם שלי קצת יותר יפה מאז שאת חלק ממנו.",
+"לילה טוב, אהבה שלי. ואם עוד לא לילה, אז פשוט תדעי שאני אוהב אותך. ❤️"
+];
+const dialog=document.querySelector("#farewell");
+document.querySelector("#goodbye").addEventListener("click",()=>{
+ const last=localStorage.getItem("lastFarewellMessage");
+ const choices=messages.map((m,i)=>({m,i})).filter(x=>x.m!==last);
+ const chosen=choices[Math.floor(Math.random()*choices.length)].m;
+ document.querySelector("#message").textContent=chosen;
+ localStorage.setItem("lastFarewellMessage",chosen);
+ dialog.showModal();
+});
+document.querySelector("#done").addEventListener("click",()=>dialog.close());
+if("serviceWorker" in navigator) window.addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
+</script>
+</body></html>
